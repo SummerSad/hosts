@@ -27,6 +27,9 @@ Sources of hosts
 `yoyo.org
 <https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0>`_
 
+`AdAway
+<https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt>`_
+
 `Badd Boyz Hosts
 <https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts>`_
 

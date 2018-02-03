@@ -77,7 +77,8 @@ void sort_file(const char *name)
 				break;
 			}
 		}
-		while (p[len - 1] == '\n' || p[len - 1] == ' ')
+		while (p[len - 1] == '\n' || p[len - 1] == '\t' ||
+		       p[len - 1] == ' ')
 			p[--len] = '\0';
 		// 127.0.0.1
 		if (*p == '1' && *(p + 1) == '2' && *(p + 2) == '7') {
@@ -128,7 +129,8 @@ void merge_file(const char *name1, const char *name2)
 		int len = strlen(p);
 		if (*p == '\n' || *p == '\t' || *p == ' ' || *p == '#')
 			continue;
-		while (p[len - 1] == '\n' || p[len - 1] == ' ')
+		while (p[len - 1] == '\n' || p[len - 1] == '\t' ||
+		       p[len - 1] == ' ')
 			p[--len] = '\0';
 
 		fprintf(f1, "%s\n", p);
@@ -158,7 +160,8 @@ void remove_dup_file(const char *name)
 	while (fgets(line, MAX, f_read)) {
 		char *p = line;
 		int len = strlen(p);
-		while (p[len - 1] == '\n' || p[len - 1] == ' ')
+		while (p[len - 1] == '\n' || p[len - 1] == '\t' ||
+		       p[len - 1] == ' ')
 			p[--len] = '\0';
 		if (strcmp(prev, p) == 0)
 			continue;
@@ -197,7 +200,8 @@ void insert_need_file(const char *name)
 		int len = strlen(p);
 		if (*p != '0')
 			continue;
-		while (p[len - 1] == '\n' || p[len - 1] == ' ')
+		while (p[len - 1] == '\n' || p[len - 1] == '\t' ||
+		       p[len - 1] == ' ')
 			p[--len] = '\0';
 
 		fprintf(f_write, "%s\n", p);

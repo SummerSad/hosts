@@ -3,6 +3,7 @@ $list = @("http://someonewhocares.org/hosts/zero/hosts",
         "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt",
         "https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/hosts",
         "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0",
+        "https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt",
         "https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts",
         "https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt",
         "https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts",
@@ -30,4 +31,4 @@ for($i = 0; $i -lt $list.length; ++$i){
 .\merge_host.exe raw .\hosts\5.txt .\hosts\6.txt .\hosts\7.txt .\hosts\8.txt .\hosts\9.txt
 .\merge_host.exe raw .\hosts\10.txt .\hosts\11.txt .\hosts\12.txt .\hosts\13.txt .\hosts\14.txt
 .\merge_host.exe raw .\hosts\15.txt .\hosts\16.txt .\hosts\17.txt .\hosts\18.txt .\hosts\19.txt
-.\merge_host.exe raw .\hosts\20.txt
+.\merge_host.exe raw .\hosts\20.txt .\hosts\21.txt
