@@ -48,7 +48,7 @@ void sort_file(const char *name)
 		// blank and comment lines
 		if (*p != '0') // only copy 0.0.0.0
 			continue;
-		if (p[len - 1] == '\n')
+		while (p[len - 1] == '\n' || p[len - 1] == ' ')
 			p[--len] = '\0';
 
 		str = (char **)realloc(str, sizeof(char *) * (numlines + 1));
@@ -86,7 +86,7 @@ void merge_file(const char *name1, const char *name2)
 		int len = strlen(p);
 		if (*p != '0')
 			continue;
-		if (p[len - 1] == '\n')
+		while (p[len - 1] == '\n' || p[len - 1] == ' ')
 			p[--len] = '\0';
 
 		fprintf(f1, "%s\n", p);
@@ -116,7 +116,7 @@ void remove_dup_file(const char *name)
 	while (fgets(line, MAX, f_read)) {
 		char *p = line;
 		int len = strlen(p);
-		if (p[len - 1] == '\n')
+		while (p[len - 1] == '\n' || p[len - 1] == ' ')
 			p[--len] = '\0';
 		if (strcmp(prev, p) == 0)
 			continue;
