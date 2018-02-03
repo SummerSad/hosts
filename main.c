@@ -71,15 +71,22 @@ void sort_file(const char *name)
 			continue;
 		while (p[len - 1] == '\n' || p[len - 1] == ' ')
 			p[--len] = '\0';
-		if (*p == '1' && *(p + 1) == '2' && *(p + 2) == '7' &&
-		    *(p + 3) == '.' && *(p + 4) == '0' && *(p + 5) == '.' &&
-		    *(p + 6) == '0' && *(p + 7) == '.' && *(p + 8) == '1')
-			replace_127(p);
+		// 127.0.0.1
+		if (*p == '1' && *(p + 1) == '2' && *(p + 2) == '7') {
+			if (strcmp(p + 10, "localhost") == 0)
+				continue;
+			else
+				replace_127(p);
+		}
 
-		str = (char **)realloc(str, sizeof(char *) * (numlines + 1));
-		str[numlines] = (char *)malloc((len + 1) * sizeof(char));
-		strcpy(str[numlines], p);
-		++numlines;
+		if (*p == '0' && *(p + 1) == '.') {
+			str = (char **)realloc(str,
+					       sizeof(char *) * (numlines + 1));
+			str[numlines] =
+			    (char *)malloc((len + 1) * sizeof(char));
+			strcpy(str[numlines], p);
+			++numlines;
+		}
 	}
 	fclose(f_read);
 	remove(name);
@@ -99,6 +106,8 @@ void sort_file(const char *name)
 void merge_file(const char *name1, const char *name2)
 {
 	FILE *f1 = fopen(name1, "a");
+	fprintf(f1, "\n");
+
 	FILE *f2 = fopen(name2, "r");
 	if (!f1 || !f2) {
 		printf("No file to merge\n");
