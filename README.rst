@@ -33,6 +33,9 @@ Sources of hosts
 `KADhosts
 <https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt>`_
 
+`thisisu hosts
+<https://raw.githubusercontent.com/thisisu/hosts/master/hosts>`_
+
 `Spotify Ad free
 <https://raw.githubusercontent.com/CHEF-KOCH/Spotify-Ad-free/master/Spotifynulled.txt>`_
 
