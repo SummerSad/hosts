@@ -35,12 +35,6 @@ Sources of hosts
 `Steven Black ad-hoc list
 <https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts>`_
 
-`Spotify Ad free
-<https://raw.githubusercontent.com/CHEF-KOCH/Spotify-Ad-free/master/Spotifynulled.txt>`_
-
-`SpotifyAds
-<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts>`_
-
 `UncheckyAds
 <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts>`_
 
