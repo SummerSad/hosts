@@ -48,7 +48,10 @@ void replace_127(char *ip)
 	new_ip[4] = '0';
 	new_ip[5] = '.';
 	new_ip[6] = '0';
-	strcpy(new_ip + 7, ip + 9);
+	if (isspace(*(ip + 9)))
+		strcpy(new_ip + 7, ip + 10);
+	else
+		strcpy(new_ip + 7, ip + 9);
 	strcpy(ip, new_ip);
 }
 

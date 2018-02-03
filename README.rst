@@ -14,6 +14,9 @@ Sources of hosts
 `MVPS
 <http://winhelp2002.mvps.org/hosts.txt>`_
 
+`Malware Domain List
+<http://www.malwaredomainlist.com/hostslist/hosts.txt>`_
+
 `NoCoin
 <https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt>`_
 
