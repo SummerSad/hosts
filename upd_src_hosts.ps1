@@ -9,8 +9,6 @@ $list = @("http://someonewhocares.org/hosts/zero/hosts",
         "https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts",
         "https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts",
         "https://raw.githubusercontent.com/yous/YousList/master/hosts.txt",
-        "https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt",
-        "https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt",
         "https://raw.githubusercontent.com/marktron/fakenews/master/fakenews",
         "https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/gambling-hosts",
         "https://pastebin.com/raw/kDqbYwWr",
@@ -27,6 +25,5 @@ for($i = 0; $i -lt $list.length; ++$i){
 .\merge_host.exe raw .\hosts\0.txt .\hosts\1.txt .\hosts\2.txt .\hosts\3.txt .\hosts\4.txt
 .\merge_host.exe raw .\hosts\5.txt .\hosts\6.txt .\hosts\7.txt .\hosts\8.txt .\hosts\9.txt
 .\merge_host.exe raw .\hosts\10.txt .\hosts\11.txt .\hosts\12.txt .\hosts\13.txt .\hosts\14.txt
-.\merge_host.exe raw .\hosts\15.txt .\hosts\16.txt
 
 Remove-Item .\hosts\*.txt
