@@ -59,9 +59,6 @@ Sources of hosts
 `win10 spy
 <https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win10/spy.txt>`_
 
-`tyzbit
-<https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts>`_
-
 `antipopads
 <https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts>`_
 
