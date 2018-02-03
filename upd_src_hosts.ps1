@@ -1,7 +1,8 @@
 $list = @("http://someonewhocares.org/hosts/zero/hosts",
         "http://winhelp2002.mvps.org/hosts.txt",
         "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt",
-        "https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts")
+        "https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts",
+        "https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts")
 
 for($i = 0; $i -lt $list.length; ++$i){
         Invoke-WebRequest -OutFile .\hosts\raw -Uri $list[$i]
