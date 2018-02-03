@@ -32,14 +32,8 @@ Sources of hosts
 `Badd Boyz Hosts
 <https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts>`_
 
-`KADhosts
-<https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt>`_
-
 `Steven Black ad-hoc list
 <https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts>`_
-
-`thisisu hosts
-<https://raw.githubusercontent.com/thisisu/hosts/master/hosts>`_
 
 `Spotify Ad free
 <https://raw.githubusercontent.com/CHEF-KOCH/Spotify-Ad-free/master/Spotifynulled.txt>`_

@@ -6,9 +6,7 @@ $list = @("http://someonewhocares.org/hosts/zero/hosts",
         "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0",
         "https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt",
         "https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts",
-        "https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt",
         "https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts",
-        "https://raw.githubusercontent.com/thisisu/hosts/master/hosts",
         "https://raw.githubusercontent.com/CHEF-KOCH/Spotify-Ad-free/master/Spotifynulled.txt",
         "https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts",
         "https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts",
@@ -39,4 +37,4 @@ for($i = 0; $i -lt $list.length; ++$i){
 .\merge_host.exe raw .\hosts\10.txt .\hosts\11.txt .\hosts\12.txt .\hosts\13.txt .\hosts\14.txt
 .\merge_host.exe raw .\hosts\15.txt .\hosts\16.txt .\hosts\17.txt .\hosts\18.txt .\hosts\19.txt
 .\merge_host.exe raw .\hosts\20.txt .\hosts\21.txt .\hosts\22.txt .\hosts\23.txt .\hosts\24.txt
-.\merge_host.exe raw .\hosts\25.txt .\hosts\26.txt .\hosts\27.txt .\hosts\28.txt
+.\merge_host.exe raw .\hosts\25.txt .\hosts\26.txt .\hosts\27.txt
