@@ -66,9 +66,17 @@ void sort_file(const char *name)
 	while (fgets(line, MAX, f_read)) {
 		char *p = line;
 		int len = strlen(p);
-		// blank and comment lines
+		// skip blank and comment lines
 		if (*p == '\n' || *p == '\t' || *p == ' ' || *p == '#')
 			continue;
+		// remove comment after link
+		for (int i = 8; p[i] != '\0'; ++i) {
+			if (p[i] == '#') {
+				p[i] = '\0';
+				len = i;
+				break;
+			}
+		}
 		while (p[len - 1] == '\n' || p[len - 1] == ' ')
 			p[--len] = '\0';
 		// 127.0.0.1
@@ -79,7 +87,7 @@ void sort_file(const char *name)
 				replace_127(p);
 		}
 
-		if (*p == '0' && *(p + 1) == '.') {
+		if (*p == '0') {
 			str = (char **)realloc(str,
 					       sizeof(char *) * (numlines + 1));
 			str[numlines] =

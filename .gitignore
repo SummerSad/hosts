@@ -3,5 +3,6 @@
 *.o
 *.out
 *.stackdump
-tags
+*.txt
 hosts/
+tags

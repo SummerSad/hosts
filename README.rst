@@ -33,6 +33,9 @@ Sources of hosts
 `KADhosts
 <https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt>`_
 
+`Steven Black ad-hoc list
+<https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts>`_
+
 `thisisu hosts
 <https://raw.githubusercontent.com/thisisu/hosts/master/hosts>`_
 
@@ -65,6 +68,9 @@ Sources of hosts
 
 `win10 spy
 <https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win10/spy.txt>`_
+
+`tyzbit
+<https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts>
 
 `antipopads
 <https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts>`_
