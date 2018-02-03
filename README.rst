@@ -9,6 +9,8 @@ Flush dns ::
 
         ipconfig /flushdns
 
+DNS Client should be stopped and set to manual
+
 Sources of hosts
 ================
 
