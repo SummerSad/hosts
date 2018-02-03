@@ -32,4 +32,4 @@ for($i = 0; $i -lt $list.length; ++$i){
 .\merge_host.exe raw .\hosts\5.txt .\hosts\6.txt .\hosts\7.txt .\hosts\8.txt .\hosts\9.txt
 .\merge_host.exe raw .\hosts\10.txt .\hosts\11.txt .\hosts\12.txt .\hosts\13.txt .\hosts\14.txt
 .\merge_host.exe raw .\hosts\15.txt .\hosts\16.txt .\hosts\17.txt .\hosts\18.txt .\hosts\19.txt
-.\merge_host.exe raw .\hosts\20.txt .\hosts\21.txt
+.\merge_host.exe raw .\hosts\20.txt .\hosts\21.txt .\hosts\22.txt
