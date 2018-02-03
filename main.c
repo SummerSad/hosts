@@ -11,6 +11,7 @@ void merge_file(const char *name1, const char *name2);
 void remove_dup_file(const char *name);
 void insert_need_file(const char *name);
 void replace_127(char *ip);
+int is_pre(const char *a, const char *b);
 
 int main(int argc, char *argv[])
 {
@@ -52,6 +53,19 @@ void replace_127(char *ip)
 	strcpy(ip, new_ip);
 }
 
+// check if b is pre a (localhost and local)
+int is_pre(const char *a, const char *b)
+{
+	if (!a || !b || strlen(a) < strlen(b))
+		return 0;
+	int i;
+	for (i = 0; b[i] != '\0'; ++i) {
+		if (a[i] != b[i])
+			break;
+	}
+	return b[i] == '\0';
+}
+
 // strip comment and sort data in file
 void sort_file(const char *name)
 {
@@ -80,14 +94,12 @@ void sort_file(const char *name)
 		}
 		while (isspace(p[len - 1]))
 			p[--len] = '\0';
-		// 127.0.0.1
-		if (*p == '1' && *(p + 1) == '2' && *(p + 2) == '7') {
-			if (strcmp(p + 10, "localhost") == 0)
-				continue;
-			else
-				replace_127(p);
-		}
 
+		if (is_pre(p, "127")) {
+			replace_127(p);
+		}
+		if (isspace(*(p + 8)))
+			continue;
 		if (*p == '0') {
 			str = (char **)realloc(str,
 					       sizeof(char *) * (numlines + 1));
@@ -184,14 +196,19 @@ void remove_dup_file(const char *name)
 
 void insert_need_file(const char *name)
 {
-	char begin[] = "127.0.0.1 localhost";
 	FILE *f_read = fopen(name, "r");
 	FILE *f_write = fopen("temp", "w");
 	if (!f_read) {
 		printf("No file to insert\n");
 		return;
 	}
-	fprintf(f_write, "%s\n\n", begin);
+
+	char *begin[] = {"127.0.0.1 localhost"};
+	int size = sizeof(begin) / sizeof(begin[0]);
+	for (int i = 0; i < size; ++i)
+		fprintf(f_write, "%s\n", begin[i]);
+	fprintf(f_write, "\n");
+
 	char line[MAX];
 	while (fgets(line, MAX, f_read)) {
 		char *p = line;
