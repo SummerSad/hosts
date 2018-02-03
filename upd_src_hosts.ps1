@@ -28,6 +28,7 @@ $list = @("http://someonewhocares.org/hosts/zero/hosts",
         "https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/gambling-hosts",
         "https://pastebin.com/raw/kDqbYwWr")
 
+$ProgressPreference = 'SilentlyContinue'
 for($i = 0; $i -lt $list.length; ++$i){
         Invoke-WebRequest -OutFile .\hosts\raw -Uri $list[$i]
         Get-Content .\hosts\raw | Out-File -Encoding ASCII .\hosts\$i.txt
