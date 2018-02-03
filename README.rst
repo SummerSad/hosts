@@ -79,3 +79,9 @@ Sources of hosts
 
 `YousList
 <https://raw.githubusercontent.com/yous/YousList/master/hosts.txt>`_
+
+`anudeepND CoinMiner
+<https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt>`_
+
+`anudeepND adservers
+<https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt>`_
