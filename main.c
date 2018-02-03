@@ -8,17 +8,21 @@ int str_compare(const void *a, const void *b);
 void sort_file(const char *name);
 void merge_file(const char *name1, const char *name2);
 void remove_dup_file(const char *name);
+void insert_need_file(const char *name);
+void replace_127(char *ip);
 
 int main(int argc, char *argv[])
 {
 	if (argc == 1) {
 		printf("Use merge_host file1 file2 ... to merge\n");
+		return 0;
 	} else if (argc == 2) {
 		remove_dup_file(argv[1]);
 	} else {
 		for (int i = 2; i < argc; ++i)
 			merge_file(argv[1], argv[i]);
 	}
+	insert_need_file(argv[1]);
 	return 0;
 }
 
@@ -28,6 +32,27 @@ int str_compare(const void *a, const void *b)
 	const char *ca = *(const char **)a;
 	const char *cb = *(const char **)b;
 	return strcmp(ca, cb);
+}
+
+// 127.0.0.1 -> 0.0.0.0
+void replace_127(char *ip)
+{
+	if (!ip || strlen(ip) < 11)
+		return;
+	if (ip[0] == '1' && ip[1] == '2' && ip[2] == '7' && ip[3] == '.' &&
+	    ip[4] == '0' && ip[5] == '.' && ip[6] == '0' && ip[7] == '.' &&
+	    ip[8] == '1') {
+		char new_ip[MAX];
+		new_ip[0] = '0';
+		new_ip[1] = '.';
+		new_ip[2] = '0';
+		new_ip[3] = '.';
+		new_ip[4] = '0';
+		new_ip[5] = '.';
+		new_ip[6] = '0';
+		strcpy(new_ip + 7, ip + 9);
+		strcpy(ip, new_ip);
+	}
 }
 
 // strip comment and sort data in file
@@ -137,4 +162,32 @@ void remove_dup_file(const char *name)
 	}
 	free(str);
 	fclose(f_write);
+}
+
+void insert_need_file(const char *name)
+{
+	char begin[] = "127.0.0.1 localhost";
+	FILE *f_read = fopen(name, "r");
+	FILE *f_write = fopen("temp", "w");
+	if (!f_read) {
+		printf("No file to insert\n");
+		return;
+	}
+	fprintf(f_write, "%s\n\n", begin);
+	char line[MAX];
+	while (fgets(line, MAX, f_read)) {
+		char *p = line;
+		int len = strlen(p);
+		if (*p != '0')
+			continue;
+		while (p[len - 1] == '\n' || p[len - 1] == ' ')
+			p[--len] = '\0';
+
+		fprintf(f_write, "%s\n", p);
+	}
+	fclose(f_read);
+	fclose(f_write);
+
+	remove(name);
+	rename("temp", name);
 }
