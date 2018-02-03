@@ -93,7 +93,7 @@ void sort_file(const char *name)
 		char *p = line;
 		int len = strlen(p);
 		// skip blank and comment lines
-		if (isspace(*p) || *p == '#')
+		if (isspace(*p) || *p == '#' || *p == '!')
 			continue;
 		// remove comment after link
 		for (int i = 8; p[i] != '\0'; ++i) {
@@ -157,7 +157,7 @@ void merge_file(const char *name1, const char *name2)
 	while (fgets(line, MAX, f2)) {
 		char *p = line;
 		int len = strlen(p);
-		if (isspace(*p) || *p == '#')
+		if (isspace(*p) || *p == '#' || *p == '!')
 			continue;
 		while (isspace(p[len - 1]))
 			p[--len] = '\0';

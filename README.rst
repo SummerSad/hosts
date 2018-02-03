@@ -91,3 +91,6 @@ Sources of hosts
 
 `Gambling
 <https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/gambling-hosts>`_
+
+`Bad JAV sites
+<https://pastebin.com/raw/kDqbYwWr>`_
