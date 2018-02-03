@@ -48,10 +48,11 @@ void replace_127(char *ip)
 	new_ip[4] = '0';
 	new_ip[5] = '.';
 	new_ip[6] = '0';
-	if (isspace(*(ip + 9)))
-		strcpy(new_ip + 7, ip + 10);
-	else
-		strcpy(new_ip + 7, ip + 9);
+	new_ip[7] = ' ';
+	int i = 10;
+	while (isspace(*(ip + i)) && *(ip + i) != '\0')
+		++i;
+	strcpy(new_ip + 8, ip + i);
 	strcpy(ip, new_ip);
 }
 
@@ -97,7 +98,7 @@ void sort_file(const char *name)
 		while (isspace(p[len - 1]))
 			p[--len] = '\0';
 
-		if (is_pre(p, "127")) {
+		if (is_pre(p, "127.0.0.1")) {
 			replace_127(p);
 			len -= 2;
 		}
@@ -119,8 +120,10 @@ void sort_file(const char *name)
 
 		if (isspace(*(p + 8)) || strcmp(p + 8, "0.0.0.0") == 0 ||
 		    strcmp(p + 8, "local") == 0 ||
-		    strcmp(p + 8, "localhost") == 0 || is_pre(p + 8, "::") ||
-		    is_pre(p + 8, "255.255.255.255") || is_pre(p + 8, "fe80"))
+		    strcmp(p + 8, "localhost") == 0 ||
+		    strcmp(p + 8, "localhost.localdomain") == 0 ||
+		    is_pre(p + 8, "::") || is_pre(p + 8, "255.255.255.255") ||
+		    is_pre(p + 8, "fe80"))
 			continue;
 		if (*p == '0') {
 			str = (char **)realloc(str,
