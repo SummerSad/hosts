@@ -8,4 +8,5 @@ How to use
 ==========
 
 Simply copy data from `raw
-<raw>`_ to host file
+<https://raw.githubusercontent.com/SummerSad/hosts/master/raw>`_
+to host file
