@@ -11,7 +11,6 @@ void merge_file(const char *name1, const char *name2);
 void remove_dup_file(const char *name);
 void insert_need_file(const char *name);
 void replace_127(char *ip);
-void add_0(char *ip);
 int is_pre(const char *a, const char *b);
 
 int main(int argc, char *argv[])
@@ -56,14 +55,6 @@ void replace_127(char *ip)
 	strcpy(ip, new_ip);
 }
 
-void add_0(char *ip)
-{
-	char new_ip[MAX];
-	strcpy(new_ip, "0.0.0.0 ");
-	strcpy(new_ip + 8, ip);
-	strcpy(ip, new_ip);
-}
-
 // check if b is pre a (localhost and local)
 int is_pre(const char *a, const char *b)
 {
@@ -90,8 +81,7 @@ void sort_file(const char *name)
 	char line[MAX];
 	char **str = NULL;
 	while (fgets(line, MAX, f_read)) {
-		char p[MAX];
-		strcpy(p, line);
+		char *p = line;
 		int len = strlen(p);
 		// skip blank and comment lines
 		if (isspace(*p) || *p == '#' || *p == '!')
@@ -109,15 +99,27 @@ void sort_file(const char *name)
 
 		if (is_pre(p, "127")) {
 			replace_127(p);
-			len = strlen(p);
+			len -= 2;
 		}
-		// if (!is_pre(p, "0.0.0.0 ")) {
-		//	add_0(p);
-		//}
+		char new_ip[MAX];
+		if (!is_pre(p, "0.0.0.0 ")) {
+			new_ip[0] = '0';
+			new_ip[1] = '.';
+			new_ip[2] = '0';
+			new_ip[3] = '.';
+			new_ip[4] = '0';
+			new_ip[5] = '.';
+			new_ip[6] = '0';
+			new_ip[7] = ' ';
+			strcpy(new_ip + 8, p);
+			p = new_ip;
+			len += 8;
+		}
 		*(p + 7) = ' '; // ensure no tab
 		if (isspace(*(p + 8)) || strcmp(p + 8, "local") == 0 ||
 		    strcmp(p + 8, "localhost") == 0 ||
-		    strcmp(p + 8, "localhost.localdomain") == 0)
+		    strcmp(p + 8, "localhost.localdomain") == 0 ||
+		    strcmp(p + 8, "0.0.0.0") == 0)
 			continue;
 		if (*p == '0') {
 			str = (char **)realloc(str,
