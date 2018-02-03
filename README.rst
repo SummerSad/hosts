@@ -53,3 +53,6 @@ Sources of hosts
 
 `Bad JAV sites
 <https://pastebin.com/raw/kDqbYwWr>`_
+
+`Spam404
+<https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt>`_
