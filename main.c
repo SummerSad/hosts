@@ -98,7 +98,11 @@ void sort_file(const char *name)
 		if (is_pre(p, "127")) {
 			replace_127(p);
 		}
-		if (isspace(*(p + 8)))
+
+		*(p + 7) = ' '; // ensure no tab
+		if (isspace(*(p + 8)) || strcmp(p + 8, "local") == 0 ||
+		    strcmp(p + 8, "localhost") == 0 ||
+		    strcmp(p + 8, "localhost.localdomain") == 0)
 			continue;
 		if (*p == '0') {
 			str = (char **)realloc(str,
