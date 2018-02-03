@@ -5,6 +5,10 @@ Simply copy data from `raw
 <https://raw.githubusercontent.com/SummerSad/hosts/master/raw>`_
 to host file
 
+Flush dns ::
+
+        ipconfig /flushdns
+
 Sources of hosts
 ================
 
@@ -19,9 +23,6 @@ Sources of hosts
 
 `NoCoin
 <https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt>`_
-
-`CoinBlockerLists
-<https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/hosts>`_
 
 `yoyo.org
 <https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0>`_
