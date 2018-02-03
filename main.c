@@ -101,8 +101,9 @@ void sort_file(const char *name)
 			replace_127(p);
 			len -= 2;
 		}
+
 		char new_ip[MAX];
-		if (!is_pre(p, "0.0.0.0 ")) {
+		if (!is_pre(p, "0.0.0.0")) {
 			new_ip[0] = '0';
 			new_ip[1] = '.';
 			new_ip[2] = '0';
@@ -115,6 +116,7 @@ void sort_file(const char *name)
 			p = new_ip;
 			len += 8;
 		}
+
 		*(p + 7) = ' '; // ensure no tab
 		if (isspace(*(p + 8)) || strcmp(p + 8, "local") == 0 ||
 		    strcmp(p + 8, "localhost") == 0 ||
