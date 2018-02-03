@@ -85,3 +85,9 @@ Sources of hosts
 
 `anudeepND adservers
 <https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt>`_
+
+`Fake News
+<https://raw.githubusercontent.com/marktron/fakenews/master/fakenews>`_
+
+`Gambling
+<https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/gambling-hosts>`_

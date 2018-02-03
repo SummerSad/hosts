@@ -23,7 +23,9 @@ $list = @("http://someonewhocares.org/hosts/zero/hosts",
         "https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts",
         "https://raw.githubusercontent.com/yous/YousList/master/hosts.txt",
         "https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt",
-        "https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt")
+        "https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt",
+        "https://raw.githubusercontent.com/marktron/fakenews/master/fakenews",
+        "https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/gambling-hosts")
 
 for($i = 0; $i -lt $list.length; ++$i){
         Invoke-WebRequest -OutFile .\hosts\raw -Uri $list[$i]
@@ -36,4 +38,4 @@ for($i = 0; $i -lt $list.length; ++$i){
 .\merge_host.exe raw .\hosts\10.txt .\hosts\11.txt .\hosts\12.txt .\hosts\13.txt .\hosts\14.txt
 .\merge_host.exe raw .\hosts\15.txt .\hosts\16.txt .\hosts\17.txt .\hosts\18.txt .\hosts\19.txt
 .\merge_host.exe raw .\hosts\20.txt .\hosts\21.txt .\hosts\22.txt .\hosts\23.txt .\hosts\24.txt
-.\merge_host.exe raw .\hosts\25.txt
+.\merge_host.exe raw .\hosts\25.txt .\hosts\26.txt .\hosts\27.txt
