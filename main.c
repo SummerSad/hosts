@@ -90,7 +90,8 @@ void sort_file(const char *name)
 	char line[MAX];
 	char **str = NULL;
 	while (fgets(line, MAX, f_read)) {
-		char *p = line;
+		char p[MAX];
+		strcpy(p, line);
 		int len = strlen(p);
 		// skip blank and comment lines
 		if (isspace(*p) || *p == '#' || *p == '!')
@@ -110,9 +111,9 @@ void sort_file(const char *name)
 			replace_127(p);
 			len = strlen(p);
 		}
-		if (!is_pre(p, "0.0.0.0 ")) {
-			add_0(p);
-		}
+		// if (!is_pre(p, "0.0.0.0 ")) {
+		//	add_0(p);
+		//}
 		*(p + 7) = ' '; // ensure no tab
 		if (isspace(*(p + 8)) || strcmp(p + 8, "local") == 0 ||
 		    strcmp(p + 8, "localhost") == 0 ||
@@ -219,7 +220,11 @@ void insert_need_file(const char *name)
 		return;
 	}
 
-	char *begin[] = {"127.0.0.1 localhost", "::1 localhost"};
+	char *begin[] = {
+	    "127.0.0.1 localhost", "127.0.0.1 localhost.localdomain",
+	    "127.0.0.1 local",     "255.255.255.255 broadcasthost",
+	    "::1 localhost",       "fe80::1%lo0 localhost",
+	    "0.0.0.0 0.0.0.0"};
 	int size = sizeof(begin) / sizeof(begin[0]);
 	for (int i = 0; i < size; ++i)
 		fprintf(f_write, "%s\n", begin[i]);

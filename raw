@@ -1,5 +1,10 @@
 127.0.0.1 localhost
+127.0.0.1 localhost.localdomain
+127.0.0.1 local
+255.255.255.255 broadcasthost
 ::1 localhost
+fe80::1%lo0 localhost
+0.0.0.0 0.0.0.0
 
 0.0.0.0 &quot;c.smartclick.net
 0.0.0.0 .ad.xiaomi.com
@@ -24,6 +29,7 @@
 0.0.0.0 .w.inmobi.com
 0.0.0.0 .zkcdn.net
 0.0.0.0 0-day-change.com
+0.0.0.0 0.0.0.0
 0.0.0.0 0.2mdn.net
 0.0.0.0 0.fls.doubleclick.net
 0.0.0.0 0.r.msn.com
