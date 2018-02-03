@@ -73,3 +73,6 @@ Sources of hosts
 
 `antipopads
 <https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts>`_
+
+`YousList
+<https://raw.githubusercontent.com/yous/YousList/master/hosts.txt>`_

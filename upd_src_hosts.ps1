@@ -19,7 +19,8 @@ $list = @("http://someonewhocares.org/hosts/zero/hosts",
         "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win81/spy.txt",
         "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win10/spy.txt",
         "https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts",
-        "https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts")
+        "https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts",
+        "https://raw.githubusercontent.com/yous/YousList/master/hosts.txt")
 
 for($i = 0; $i -lt $list.length; ++$i){
         Invoke-WebRequest -OutFile .\hosts\raw -Uri $list[$i]
