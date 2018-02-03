@@ -21,6 +21,9 @@ Sources of hosts
 `NoCoin
 <https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt>`_
 
+`CoinBlockerLists
+<https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/hosts>`_
+
 `SpotifyAds
 <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts>`_
 
@@ -44,3 +47,15 @@ Sources of hosts
 
 `add.Spam
 <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts>`_
+
+`win7 spy
+<https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win7/spy.txt>`_
+
+`win8 spy
+<https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win81/spy.txt>`_
+
+`win10 spy
+<https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win10/spy.txt>`_
+
+`antipopads
+<https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts>`_
