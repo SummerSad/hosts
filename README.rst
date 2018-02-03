@@ -39,27 +39,6 @@ Sources of hosts
 `UncheckyAds
 <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts>`_
 
-`add.2o7Net
-<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts>`_
-
-`add.Dead
-<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Dead/hosts>`_
-
-`add.Risk
-<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts>`_
-
-`add.Spam
-<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts>`_
-
-`win7 spy
-<https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win7/spy.txt>`_
-
-`win8 spy
-<https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win81/spy.txt>`_
-
-`win10 spy
-<https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win10/spy.txt>`_
-
 `antipopads
 <https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts>`_
 
