@@ -117,7 +117,6 @@ void sort_file(const char *name)
 			len += 8;
 		}
 
-		*(p + 7) = ' '; // ensure no tab
 		if (isspace(*(p + 8)) || strcmp(p + 8, "0.0.0.0") == 0 ||
 		    strcmp(p + 8, "local") == 0 ||
 		    strcmp(p + 8, "localhost") == 0 || is_pre(p + 8, "::") ||
