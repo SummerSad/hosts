@@ -24,17 +24,23 @@ Sources of hosts
 `CoinBlockerLists
 <https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/hosts>`_
 
-`SpotifyAds
-<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts>`_
-
-`UncheckyAds
-<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts>`_
-
 `yoyo.org
 <https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0>`_
 
 `Badd Boyz Hosts
 <https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts>`_
+
+`KADhosts
+<https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt>`_
+
+`Spotify Ad free
+<https://raw.githubusercontent.com/CHEF-KOCH/Spotify-Ad-free/master/Spotifynulled.txt>`_
+
+`SpotifyAds
+<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts>`_
+
+`UncheckyAds
+<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts>`_
 
 `add.2o7Net
 <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts>`_
