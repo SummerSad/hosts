@@ -18,12 +18,11 @@ int main(int argc, char *argv[])
 	if (argc == 1) {
 		printf("Use merge_host file1 file2 ... to merge\n");
 		return 0;
-	} else if (argc == 2) {
-		remove_dup_file(argv[1]);
 	} else {
 		for (int i = 2; i < argc; ++i)
 			merge_file(argv[1], argv[i]);
 	}
+	remove_dup_file(argv[1]);
 	insert_need_file(argv[1]);
 	return 0;
 }
@@ -152,8 +151,6 @@ void merge_file(const char *name1, const char *name2)
 	}
 	fclose(f1);
 	fclose(f2);
-
-	remove_dup_file(name1);
 }
 
 // remove duplicate line in file, file must be sorted first
