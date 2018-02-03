@@ -118,10 +118,10 @@ void sort_file(const char *name)
 		}
 
 		*(p + 7) = ' '; // ensure no tab
-		if (isspace(*(p + 8)) || strcmp(p + 8, "local") == 0 ||
-		    strcmp(p + 8, "localhost") == 0 ||
-		    strcmp(p + 8, "localhost.localdomain") == 0 ||
-		    strcmp(p + 8, "0.0.0.0") == 0)
+		if (isspace(*(p + 8)) || strcmp(p + 8, "0.0.0.0") == 0 ||
+		    strcmp(p + 8, "local") == 0 ||
+		    strcmp(p + 8, "localhost") == 0 || is_pre(p + 8, "::") ||
+		    is_pre(p + 8, "255.255.255.255") || is_pre(p + 8, "fe80"))
 			continue;
 		if (*p == '0') {
 			str = (char **)realloc(str,

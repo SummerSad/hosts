@@ -397,8 +397,6 @@ fe80::1%lo0 localhost
 0.0.0.0 25057.hittail.com
 0.0.0.0 25184.hittail.com
 0.0.0.0 2542116.fls.doubleclick.net
-0.0.0.0 255.255.255.255	broadcasthost
-0.0.0.0 255.255.255.255 broadcasthost
 0.0.0.0 257.de
 0.0.0.0 257639.com
 0.0.0.0 259572.com
@@ -880,9 +878,6 @@ fe80::1%lo0 localhost
 0.0.0.0 9o4n4m.top
 0.0.0.0 9stoneinvestments.com
 0.0.0.0 9thien.com
-0.0.0.0 ::1		localhost
-0.0.0.0 ::1  localhost
-0.0.0.0 ::1 localhost
 0.0.0.0 ??oogle.com
 0.0.0.0 ANDpolice.com
 0.0.0.0 ASKBOT.com
@@ -17687,7 +17682,6 @@ fe80::1%lo0 localhost
 0.0.0.0 fe3-gc.imrworldwide.com
 0.0.0.0 fe3-uk.imrworldwide.com
 0.0.0.0 fe4-uk.imrworldwide.com
-0.0.0.0 fe80::1%lo0 localhost
 0.0.0.0 feacamnliz.bid
 0.0.0.0 feaecebook.com
 0.0.0.0 fealq.com
