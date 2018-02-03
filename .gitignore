@@ -1,0 +1,7 @@
+*.exe
+*.h.gch
+*.o
+*.out
+*.stackdump
+tags
+hosts/
