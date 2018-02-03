@@ -4,6 +4,18 @@ Sources of hosts
 `someonewhocares
 <http://someonewhocares.org/hosts/zero/hosts>`_
 
+`mvps
+<http://winhelp2002.mvps.org/hosts.txt>`_
+
+`NoCoin
+<https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt>`_
+
+`SpotifyAds
+<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts>`_
+
+`UncheckyAds
+<https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts>`_
+
 How to use
 ==========
 
