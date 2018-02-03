@@ -21,6 +21,8 @@ for($i = 0; $i -lt $list.length; ++$i){
         Remove-Item .\hosts\raw
 }
 
+Remove-Item .\raw
+
 .\merge_host.exe raw .\hosts\0.txt .\hosts\1.txt .\hosts\2.txt .\hosts\3.txt .\hosts\4.txt
 .\merge_host.exe raw .\hosts\5.txt .\hosts\6.txt .\hosts\7.txt .\hosts\8.txt .\hosts\9.txt
 .\merge_host.exe raw .\hosts\10.txt .\hosts\11.txt .\hosts\12.txt .\hosts\13.txt
