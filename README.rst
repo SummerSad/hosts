@@ -53,6 +53,3 @@ Sources of hosts
 
 `Bad JAV sites
 <https://pastebin.com/raw/kDqbYwWr>`_
-
-`Ransomware Tracker
-<https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt>`_
