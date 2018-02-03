@@ -46,8 +46,7 @@ void sort_file(const char *name)
 		char *p = line;
 		int len = strlen(p);
 		// blank and comment lines
-		if (len <= 0 || *p == '\n' || *p == '\t' || *p == ' ' ||
-		    *p == '#')
+		if (*p != '0') // only copy 0.0.0.0
 			continue;
 		if (p[len - 1] == '\n')
 			p[--len] = '\0';
@@ -85,8 +84,7 @@ void merge_file(const char *name1, const char *name2)
 	while (fgets(line, MAX, f2)) {
 		char *p = line;
 		int len = strlen(p);
-		if (len <= 0 || *p == '\n' || *p == '\t' || *p == ' ' ||
-		    *p == '#')
+		if (*p != '0')
 			continue;
 		if (p[len - 1] == '\n')
 			p[--len] = '\0';

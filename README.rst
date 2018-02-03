@@ -7,6 +7,10 @@ Sources of hosts
 How to use
 ==========
 
-Simply copy data from `raw
+This must be first in hosts file ::
+
+        127.0.0.1     localhost
+
+Then simply copy data from `raw
 <https://raw.githubusercontent.com/SummerSad/hosts/master/raw>`_
 to host file
