@@ -39,20 +39,16 @@ void replace_127(char *ip)
 {
 	if (!ip || strlen(ip) < 11)
 		return;
-	if (ip[0] == '1' && ip[1] == '2' && ip[2] == '7' && ip[3] == '.' &&
-	    ip[4] == '0' && ip[5] == '.' && ip[6] == '0' && ip[7] == '.' &&
-	    ip[8] == '1') {
-		char new_ip[MAX];
-		new_ip[0] = '0';
-		new_ip[1] = '.';
-		new_ip[2] = '0';
-		new_ip[3] = '.';
-		new_ip[4] = '0';
-		new_ip[5] = '.';
-		new_ip[6] = '0';
-		strcpy(new_ip + 7, ip + 9);
-		strcpy(ip, new_ip);
-	}
+	char new_ip[MAX];
+	new_ip[0] = '0';
+	new_ip[1] = '.';
+	new_ip[2] = '0';
+	new_ip[3] = '.';
+	new_ip[4] = '0';
+	new_ip[5] = '.';
+	new_ip[6] = '0';
+	strcpy(new_ip + 7, ip + 9);
+	strcpy(ip, new_ip);
 }
 
 // strip comment and sort data in file
@@ -71,10 +67,14 @@ void sort_file(const char *name)
 		char *p = line;
 		int len = strlen(p);
 		// blank and comment lines
-		if (*p != '0') // only copy 0.0.0.0
+		if (*p == '\n' || *p == '\t' || *p == ' ' || *p == '#')
 			continue;
 		while (p[len - 1] == '\n' || p[len - 1] == ' ')
 			p[--len] = '\0';
+		if (*p == '1' && *(p + 1) == '2' && *(p + 2) == '7' &&
+		    *(p + 3) == '.' && *(p + 4) == '0' && *(p + 5) == '.' &&
+		    *(p + 6) == '0' && *(p + 7) == '.' && *(p + 8) == '1')
+			replace_127(p);
 
 		str = (char **)realloc(str, sizeof(char *) * (numlines + 1));
 		str[numlines] = (char *)malloc((len + 1) * sizeof(char));
@@ -109,7 +109,7 @@ void merge_file(const char *name1, const char *name2)
 	while (fgets(line, MAX, f2)) {
 		char *p = line;
 		int len = strlen(p);
-		if (*p != '0')
+		if (*p == '\n' || *p == '\t' || *p == ' ' || *p == '#')
 			continue;
 		while (p[len - 1] == '\n' || p[len - 1] == ' ')
 			p[--len] = '\0';
