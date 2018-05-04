@@ -4,5 +4,5 @@
 *.out
 *.stackdump
 *.txt
-hosts/
-tags
+!data/sowc.txt
+!data/steve.txt
