@@ -6,7 +6,7 @@ How to use
 ==========
 
 Simply copy data from `spy
-<./spy.txt>`_
+<https://raw.githubusercontent.com/SummerSad/hosts/master/spy>`_
 to host file
 
 Flush dns ::
