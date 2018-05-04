@@ -6,12 +6,13 @@
 #define MAX 200
 
 int str_compare(const void *a, const void *b);
+void replace_127(char *ip);
+int is_pre(const char *a, const char *b);
+
+// file related
 void sort_file(const char *name);
 void merge_file(const char *name1, const char *name2);
 void remove_dup_file(const char *name);
-void insert_need_file(const char *name);
-void replace_127(char *ip);
-int is_pre(const char *a, const char *b);
 
 int main(int argc, char *argv[])
 {
@@ -23,7 +24,6 @@ int main(int argc, char *argv[])
 			merge_file(argv[1], argv[i]);
 	}
 	remove_dup_file(argv[1]);
-	insert_need_file(argv[1]);
 	return 0;
 }
 
@@ -84,10 +84,11 @@ void sort_file(const char *name)
 	while (fgets(line, MAX, f_read)) {
 		char *p = line;
 		int len = strlen(p);
+
 		// skip blank and comment lines
 		if (isspace(*p) || *p == '#' || *p == '!')
 			continue;
-		// remove comment after link
+		// remove comment in 0.0.0.0 web.example.com #nasty comment
 		for (int i = 8; p[i] != '\0'; ++i) {
 			if (p[i] == '#') {
 				p[i] = '\0';
@@ -95,14 +96,15 @@ void sort_file(const char *name)
 				break;
 			}
 		}
+		// remove trailing space and '\n'
 		while (isspace(p[len - 1]))
 			p[--len] = '\0';
-
+		// use 0.0.0.0 instead of 127.0.0.1
 		if (is_pre(p, "127.0.0.1")) {
 			replace_127(p);
 			len -= 2;
 		}
-
+		// web.example.com -> 0.0.0.0 web.example.com
 		char new_ip[MAX];
 		if (!is_pre(p, "0.0.0.0")) {
 			new_ip[0] = '0';
@@ -117,7 +119,7 @@ void sort_file(const char *name)
 			p = new_ip;
 			len += 8;
 		}
-
+                // skip nasty header
 		if (isspace(*(p + 8)) || strcmp(p + 8, "0.0.0.0") == 0 ||
 		    strcmp(p + 8, "local") == 0 ||
 		    strcmp(p + 8, "localhost") == 0 ||
@@ -125,6 +127,8 @@ void sort_file(const char *name)
 		    is_pre(p + 8, "::") || is_pre(p + 8, "255.255.255.255") ||
 		    is_pre(p + 8, "fe80"))
 			continue;
+
+                // copy to str[]
 		if (*p == '0') {
 			str = (char **)realloc(str,
 					       sizeof(char *) * (numlines + 1));
@@ -139,6 +143,7 @@ void sort_file(const char *name)
 
 	qsort(str, numlines, sizeof(char *), str_compare);
 
+        // copy back to file
 	FILE *f_write = fopen(name, "w");
 	for (int i = 0; i < numlines; ++i) {
 		fprintf(f_write, "%s\n", str[i]);
@@ -164,8 +169,10 @@ void merge_file(const char *name1, const char *name2)
 	while (fgets(line, MAX, f2)) {
 		char *p = line;
 		int len = strlen(p);
+		// skip comment or space line
 		if (isspace(*p) || *p == '#' || *p == '!')
 			continue;
+		// remove trailing space and '\n'
 		while (isspace(p[len - 1]))
 			p[--len] = '\0';
 
@@ -178,6 +185,7 @@ void merge_file(const char *name1, const char *name2)
 // remove duplicate line in file, file must be sorted first
 void remove_dup_file(const char *name)
 {
+	// sort file first
 	sort_file(name);
 
 	FILE *f_read = fopen(name, "r");
@@ -186,6 +194,7 @@ void remove_dup_file(const char *name)
 		return;
 	}
 
+	// a a b b c -> a b c
 	int numlines = 0;
 	char line[MAX];
 	char **str = NULL;
@@ -194,9 +203,13 @@ void remove_dup_file(const char *name)
 	while (fgets(line, MAX, f_read)) {
 		char *p = line;
 		int len = strlen(p);
+
+		// remove trailing space and '\n'
 		while (isspace(p[len - 1]))
 			p[--len] = '\0';
-		if (strcmp(prev, p) == 0)
+
+		// skip duplicate
+                if (strcmp(prev, p) == 0)
 			continue;
 
 		strcpy(prev, p);
@@ -215,41 +228,4 @@ void remove_dup_file(const char *name)
 	}
 	free(str);
 	fclose(f_write);
-}
-
-void insert_need_file(const char *name)
-{
-	FILE *f_read = fopen(name, "r");
-	FILE *f_write = fopen("temp", "w");
-	if (!f_read) {
-		printf("No file to insert\n");
-		return;
-	}
-
-	char *begin[] = {
-	    "127.0.0.1 localhost", "127.0.0.1 localhost.localdomain",
-	    "127.0.0.1 local",     "255.255.255.255 broadcasthost",
-	    "::1 localhost",       "fe80::1%lo0 localhost",
-	    "0.0.0.0 0.0.0.0"};
-	int size = sizeof(begin) / sizeof(begin[0]);
-	for (int i = 0; i < size; ++i)
-		fprintf(f_write, "%s\n", begin[i]);
-	fprintf(f_write, "\n");
-
-	char line[MAX];
-	while (fgets(line, MAX, f_read)) {
-		char *p = line;
-		int len = strlen(p);
-		if (*p != '0')
-			continue;
-		while (isspace(p[len - 1]))
-			p[--len] = '\0';
-
-		fprintf(f_write, "%s\n", p);
-	}
-	fclose(f_read);
-	fclose(f_write);
-
-	remove(name);
-	rename("temp", name);
 }

@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -g
-SRCS = $(wildcard *.c)
+CFLAGS = -Wall -Wextra
+SRCS = $(wildcard src/*.c)
 
 all:
 	$(CC) $(CFLAGS) $(SRCS) -o merge_host.exe
