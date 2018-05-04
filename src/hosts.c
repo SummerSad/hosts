@@ -74,7 +74,7 @@ void sort_file(const char *name)
 {
 	FILE *f_read = fopen(name, "r");
 	if (!f_read) {
-		printf("No file to sort\n");
+		printf("Can't find %s to sort\n", name);
 		return;
 	}
 
@@ -119,7 +119,7 @@ void sort_file(const char *name)
 			p = new_ip;
 			len += 8;
 		}
-                // skip nasty header
+		// skip nasty header
 		if (isspace(*(p + 8)) || strcmp(p + 8, "0.0.0.0") == 0 ||
 		    strcmp(p + 8, "local") == 0 ||
 		    strcmp(p + 8, "localhost") == 0 ||
@@ -128,7 +128,7 @@ void sort_file(const char *name)
 		    is_pre(p + 8, "fe80"))
 			continue;
 
-                // copy to str[]
+		// copy to str[]
 		if (*p == '0') {
 			str = (char **)realloc(str,
 					       sizeof(char *) * (numlines + 1));
@@ -143,7 +143,7 @@ void sort_file(const char *name)
 
 	qsort(str, numlines, sizeof(char *), str_compare);
 
-        // copy back to file
+	// copy back to file
 	FILE *f_write = fopen(name, "w");
 	for (int i = 0; i < numlines; ++i) {
 		fprintf(f_write, "%s\n", str[i]);
@@ -161,7 +161,7 @@ void merge_file(const char *name1, const char *name2)
 
 	FILE *f2 = fopen(name2, "r");
 	if (!f1 || !f2) {
-		printf("No file to merge\n");
+		printf("Can't find %s to merge\n", name2);
 		return;
 	}
 
@@ -190,7 +190,7 @@ void remove_dup_file(const char *name)
 
 	FILE *f_read = fopen(name, "r");
 	if (!f_read) {
-		printf("No file to remove duplicate\n");
+		printf("Can't find %s to remove duplicate\n", name);
 		return;
 	}
 
@@ -209,7 +209,7 @@ void remove_dup_file(const char *name)
 			p[--len] = '\0';
 
 		// skip duplicate
-                if (strcmp(prev, p) == 0)
+		if (strcmp(prev, p) == 0)
 			continue;
 
 		strcpy(prev, p);

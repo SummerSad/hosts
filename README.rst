@@ -18,3 +18,9 @@ Sources of hosts
 
 `WindowsSpyBlocker
 <http://winspyblocker.crazyws.fr/data/hosts/win10/spy.txt>`_
+
+`someonewhocares
+<http://someonewhocares.org/hosts/zero/hosts>`_
+
+`StevenBlack
+<https://github.com/StevenBlack/hosts/blob/master/data/StevenBlack/hosts>`_
